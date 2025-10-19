@@ -1,1 +1,217 @@
 
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strefa B • dla niewierzących</title>
+  <meta name="description" content="Witaj w strefie B — bez wiary, o wolności, odpowiedzialności i wyborach. Z trybem dzień/noc."/>
+  <style>
+    :root{
+      --bg:#fbfaf7;
+      --card:#ffffff;
+      --ink:#1f2430;
+      --muted:#667085;
+      --blue:#0a4fa3;
+      --blue-ink:#ffffff;
+      --border:#e6e6ea;
+      --radius:20px;
+      --shadow:0 10px 32px rgba(0,0,0,.08);
+      --maxw:1000px;
+    }
+    .dark{
+      --bg:#0f1420;
+      --card:#141824;
+      --ink:#e7ecf6;
+      --muted:#aab3c6;
+      --blue:#0b3d7a;
+      --blue-ink:#ffffff;
+      --border:#263049;
+      --shadow:0 10px 40px rgba(0,0,0,.4);
+    }
+
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; 
+      background:var(--bg); 
+      color:var(--ink);
+      font-family:system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif;
+      font-size:clamp(17px, 1.1vw + 0.5rem, 19px);
+      line-height:1.7;
+      display:flex; 
+      flex-direction:column; 
+      min-height:100vh;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(100%,var(--maxw)); margin-inline:auto; padding:clamp(12px,2vw,24px)}
+
+    header{position:sticky; top:0; z-index:20; backdrop-filter:saturate(180%) blur(6px)}
+    .bar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      background:color-mix(in oklab, var(--card) 80%, transparent);
+      border:1px solid var(--border);
+      border-radius:16px; 
+      padding:10px 14px; 
+      box-shadow:var(--shadow);
+    }
+    .title{font-weight:800; letter-spacing:.2px}
+    .mode-btn{
+      appearance:none; 
+      border:1px solid var(--border); 
+      background:var(--card); 
+      color:var(--ink);
+      padding:8px 12px; 
+      border-radius:12px; 
+      cursor:pointer; 
+      font-weight:600;
+    }
+
+    .hero{
+      margin-top:clamp(18px,3vh,38px); 
+      border-radius:var(--radius); 
+      background:var(--blue); 
+      color:var(--blue-ink);
+      box-shadow:var(--shadow); 
+      overflow:hidden; 
+      position:relative;
+    }
+    .hero::after{
+      content:""; 
+      position:absolute; 
+      inset:auto -20% -35% -20%; 
+      height:60%;
+      background:linear-gradient(to top, rgba(255,255,255,.18), rgba(255,255,255,0) 60%);
+      transform:skewY(-6deg);
+    }
+    .hero-inner{padding:clamp(18px,3.5vw,42px); text-align:center}
+    .kicker{font-size:.95rem; letter-spacing:.08em; text-transform:uppercase; opacity:.9}
+    h1{margin:.1em 0 .2em; font-size:clamp(1.8rem, 2.4vw + .6rem, 2.5rem); line-height:1.2}
+    .lead{margin:0 auto; max-width:70ch; font-size:clamp(1.1rem, .9vw + .8rem, 1.3rem); opacity:.98}
+
+    .card{
+      margin-top:clamp(22px,4vh,46px); 
+      background:var(--card); 
+      border:1px solid var(--border); 
+      border-radius:var(--radius); 
+      box-shadow:var(--shadow);
+    }
+    .card-inner{
+      padding:clamp(18px,3vw,36px);
+    }
+    .card-inner p{
+      margin:0 0 1.3em;
+      max-width:75ch;
+    }
+    .soft{color:var(--muted)}
+    blockquote{
+      margin:1.5em 0; 
+      padding:1em 1.2em; 
+      border-left:4px solid var(--blue); 
+      background:color-mix(in oklab, var(--card) 88%, var(--blue) 12%); 
+      border-radius:12px;
+    }
+    blockquote p{margin:.2em 0; font-size:1rem;}
+
+    .nav{
+      display:flex; 
+      flex-wrap:wrap; 
+      gap:12px; 
+      margin-top:clamp(20px,3vh,32px)
+    }
+    .btn{
+      display:inline-flex; 
+      align-items:center; 
+      justify-content:center; 
+      gap:.5rem; 
+      padding:.9rem 1.3rem;
+      border-radius:14px; 
+      border:1px solid var(--border); 
+      background:var(--card); 
+      box-shadow:var(--shadow); 
+      font-weight:700;
+      font-size:1rem;
+    }
+    .btn.blue{background:var(--blue); color:var(--blue-ink); border-color:transparent}
+    .btn:hover{transform:translateY(-1px)}
+    .ghost{opacity:.9}
+
+    footer{
+      color:var(--muted); 
+      font-size:1rem; 
+      margin:28px 0 10px; 
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header aria-label="Nagłówek">
+      <div class="bar">
+        <div class="title">Strefa B — dla niewierzących</div>
+        <button class="mode-btn" id="modeBtn" type="button" aria-pressed="false" title="Przełącz: dzień / noc">☀️ Dzień / 🌙 Noc</button>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Wprowadzenie">
+      <div class="hero-inner">
+        <h1>Witaj w strefie B</h1>
+        <p class="lead">Bez wiary — o wolności, odpowiedzialności i wyborach. Spokojnie, bez presji. Możesz po prostu przeczytać i pójść dalej.</p>
+      </div>
+    </section>
+
+    <article class="card" aria-label="Artykuł">
+      <div class="card-inner">
+        <p>Jeżeli nie wierzysz w nic... jesteś wolny. Nie należysz do nikogo, nie masz nad sobą żadnej siły wyższej. Jesteś panem swojego życia. Możesz robić, co chcesz. Jesteś szczęśliwym przypadkiem ewolucji, a już sam fakt, że w ogóle się urodziłeś — to niezwykłe szczęście. Twoi rodzice mogli uznać, że jesteś problemem, a jednak pozwolili ci przyjść na świat. To już coś.</p>
+
+        <p>Żyjąc bez wiary, podlegasz tylko prawu cywilnemu. Wystarczy, że nie łamiesz zasad państwa i społeczeństwa. Dopóki nie krzywdzisz innych — masz święty spokój. Możesz spać spokojnie, nie spowiadać się nikomu, nie klękać, nie tłumaczyć się ze swoich myśli. Świat jest taki, jakim go widzisz — i tylko tyle.</p>
+
+        <p>Ale wolność ma granice. Kończy się tam, gdzie zaczyna prawo. Kończy się też tam, gdzie kończy się życie. Bo jeśli śmierć zamyka wszystko — to kończy się nie tylko twoje ciało, ale i każda dobra rzecz, którą zrobiłeś. Każdy uśmiech, słowo, gest. Wszystko znika.</p>
+
+        <blockquote>
+          <p class="soft">Bez wiary człowiek może czuć się niezależny i samowystarczalny. Ale ta wolność zawsze kończy się na granicy konsekwencji. Czy na pewno tego pragniesz — być tylko przypadkiem, iskrą, która zgasła?</p>
+        </blockquote>
+
+        <p>Czasem w człowieku pojawia się cichy smutek. Nie dlatego, że coś jest źle, ale dlatego, że <strong>czegoś brakuje</strong>. Jakby w środku była przestrzeń, której nie da się zapełnić ani rzeczami, ani sukcesem, ani świętym spokojem.</p>
+
+        <p>I wtedy zaczynasz pytać: — A może jednak istnieje coś więcej? — Może ktoś naprawdę mnie widzi i rozumie?</p>
+
+        <p>Jeśli kiedykolwiek to poczujesz, nie bój się zajrzeć dalej. Zajrzyj do zakładki <a href="A.html" class="ghost"><strong>A</strong></a> lub <a href="https://majstered.github.io/twojopis.github.io/" class="ghost"><strong>C</strong></a>. Być może właśnie tam znajdziesz odpowiedzi, których wcześniej nie miałeś okazji poznać.</p>
+
+        <div class="nav" aria-label="Nawigacja">
+          <a href="https://drogawiary.github.io/" class="btn">⬅️ Strona główna</a>
+        </div>
+      </div>
+    </article>
+
+    <footer style="
+      background:color-mix(in oklab, var(--card) 70%, #f5e8c8);
+      color:var(--ink);
+      text-align:center;
+      padding:14px 8px;
+      font-size:1rem;
+      font-family:system-ui,Segoe UI,Roboto;
+      border-top:1px solid var(--border);
+      opacity:.9;
+    ">
+      ✦ © 2025 <strong>Albert Studio</strong>
+    </footer>
+  </div>
+
+  <script>
+    const modeBtn = document.getElementById('modeBtn');
+    const LS_KEY = 'theme-pref';
+    const apply = (m)=>{ 
+      document.body.classList.toggle('dark', m==='dark'); 
+      modeBtn.setAttribute('aria-pressed', m==='dark'); 
+    }
+    const saved = localStorage.getItem(LS_KEY); 
+    if(saved){ apply(saved); }
+    modeBtn.addEventListener('click', ()=>{ 
+      const now = document.body.classList.contains('dark') ? 'light' : 'dark'; 
+      localStorage.setItem(LS_KEY, now); 
+      apply(now); 
+    });
+  </script>
+</body>
+</html>
