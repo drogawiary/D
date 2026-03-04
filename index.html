@@ -1,89 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Dokument HTML</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parafia Siedliszcze</title>
+
 <style>
-body {
-    background: #ffffff;
-    padding: 40px;
-    margin: 0;
-    font-family: Open Sans, sans-serif;
+* {
+    box-sizing: border-box;
 }
 
-.page {
-    max-width: 900px;
-    margin: auto;
-    background: #f8f9fa;
-    padding: 40px;
-    font-family: Open Sans;
-    color: #212529;
-    line-height: 1.7;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: #b9ab8d;
 }
-h1, h2, h3, h4 {
-    color: #212529;
+
+/* ===== GŁÓWNY UKŁAD ===== */
+.wrapper {
+    display: flex;
+    min-height: 100vh;
 }
-blockquote {
+
+/* ===== LEWA KOLUMNA ===== */
+.sidebar {
+    width: 300px;
+    background: #e6dcc8;
+    padding: 40px 25px;
+    border-right: 2px solid #8a7b5d;
+}
+
+.sidebar h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #4a3c25;
+}
+
+.dots {
+    letter-spacing: 10px;
     margin: 20px 0;
-    padding-left: 20px;
-    border-left: 4px solid #999;
-    font-style: italic;
+    color: #4a3c25;
 }
-details {
-    margin: 15px 0;
+
+.menu a {
+    display: block;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: #4a3c25;
+    font-size: 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
-summary {
-    cursor: pointer;
+
+/* 🔥 HOVER */
+.menu a:hover {
+    background: #a6884a;
+    color: white;
+    transform: translateX(6px);
+}
+
+/* ===== PRAWA STRONA ===== */
+.content {
+    flex: 1;
+    padding: 60px 80px;
+    background: #9e8e6f;
+    color: #2f2414;
+}
+
+.content h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ===== ZDJĘCIE DO PODMIANY ===== */
+.photo-placeholder {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 40px auto;
+    background: #d4c4a3;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
-    padding: 5px;
+    font-size: 18px;
+    border: 3px dashed #6e5c3d;
 }
+
+/* ===== TEKST ===== */
+.section h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+
+.wrapper {
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #8a7b5d;
+}
+
+.content {
+    padding: 30px 20px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
-<div class="page">
-<!-- BANER ANIMOWANY -->
-<div style="max-width: 900px; margin: 0 auto 25px auto; background: linear-gradient(90deg, #4a90e2, #357ABD); color: white; text-align: center; padding: 35px 20px; font-size: clamp(24px, 3vw, 36px); font-weight: 300; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); animation: slideDown 1s ease-out;">
-    Nie robi bałaganu
+
+<div class="wrapper">
+
+    <!-- LEWA STRONA -->
+    <div class="sidebar">
+        <h1>Parafia<br>Siedliszcze</h1>
+        <div class="dots">• • • •</div>
+
+        <div class="menu">
+            <a href="#">Strona główna</a>
+            <a href="#">Aktualności</a>
+            <a href="#">Personalia</a>
+            <a href="#">Godziny Mszy Świętej</a>
+            <a href="#">Nabożeństwa</a>
+            <a href="#">Rekolekcje</a>
+            <a href="#">Spowiedź Święta</a>
+            <a href="#">Grupy parafialne</a>
+            <a href="#">Ochrona dzieci w Parafii</a>
+            <a href="#">Historia</a>
+            <a href="#">Galerie</a>
+        </div>
+    </div>
+
+    <!-- PRAWA STRONA -->
+    <div class="content">
+
+        <h2>
+            Witaj na stronie Parafii Rzymskokatolickiej<br>
+            Najświętszej Maryi Panny Częstochowskiej w Siedliszczu
+        </h2>
+
+        <div class="photo-placeholder">
+            ZDJĘCIE<br>(do podmiany)
+        </div>
+
+        <div class="section">
+            <h3>
+                Parafia Najświętszej Maryi Panny Częstochowskiej w Siedliszczu
+            </h3>
+
+            <p>
+                Parafia należy do Dekanatu Siedliszcze i znajduje się w Archidiecezji Lubelskiej.
+                Położona jest w powiecie chełmskim i graniczy z okolicznymi parafiami.
+            </p>
+
+            <p>
+                Na terenie parafii znajdują się kaplice oraz liczne miejsca kultu religijnego.
+                Wspólnota parafialna aktywnie uczestniczy w życiu duchowym regionu.
+            </p>
+        </div>
+
+    </div>
+
 </div>
 
-<style>
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-</style>
-<!-- KONIEC BANERA ANIMOWANEGO -->
-
-<div style="border:2px solid #c0a062; padding:20px; border-radius:12px; margin:20px 0;">✔ <em>Nie dokłada</em> <u>kolejnej ramki</u></div><br>
-<blockquote style="background:#f8f8f8; border-left:5px solid #4a90e2; padding:15px 20px; margin:20px 0; border-radius:0 8px 8px 0;">✔ <span style="color:#CA0000;">Nie psuje struktury</span></blockquote><br>
-<br>
-<hr style="border:1px solid #999; margin:20px 0;">
-
-        <div style="
-            background:#f3e6c9;
-            padding:20px;
-            border-radius:12px;
-            margin:20px 0;
-        ">
-        <div style="text-align:center;">
-✔ Nie robi bałaganu w HTML
-</div>
-        </div><br>
-
-<img src="D:\AAA_programy_AI\Programy użytkowe mp3\mini_creator\apki\proste_apki\projekty\img_b4029b61.png" style="max-width:100%; height:auto;" onerror="this.onerror=null; this.src='img_b4029b61.png';"><br>
-
-        <audio controls style="width:100%; margin:15px 0;"
-            src="D:\AAA_programy_AI\Programy użytkowe mp3\mini_creator\apki\proste_apki\projekty\audio_74a65a73.mp3"
-            onerror="this.onerror=null; this.src='audio_74a65a73.mp3';">
-            Twoja przeglądarka nie obsługuje audio.
-        </audio>
-        <br>
-
-   <div style="text-align:center;">
-     ramka końcowa
-</div>
-</div>
 </body>
 </html>
+
+
